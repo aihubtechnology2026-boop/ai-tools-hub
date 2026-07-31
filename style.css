@@ -63,11 +63,17 @@ nav a{
     gap:20px;
     padding:60px 10%;
 }
-
 .card{
     background:#1e293b;
     padding:25px;
     border-radius:12px;
+    transition:0.3s ease;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(59,130,246,0.4);
 }
 
 footer{
