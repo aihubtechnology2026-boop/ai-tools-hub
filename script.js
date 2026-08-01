@@ -20,13 +20,15 @@ const cards = document.querySelectorAll(".tool-card");
 
 buttons.forEach(button => {
     button.addEventListener("click", function () {
+        alert("You clicked: " + this.getAttribute("data-category"));
+
         const category = this.getAttribute("data-category");
 
         cards.forEach(card => {
             const cardCategory = card.getAttribute("data-category");
 
             if (category === "all" || cardCategory === category) {
-                card.style.display = "block";
+                card.style.display = "";
             } else {
                 card.style.display = "none";
             }
