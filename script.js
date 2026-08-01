@@ -21,12 +21,14 @@ const buttons = document.querySelectorAll(".category-btn");
 const cards = document.querySelectorAll(".tool-card");
 
 buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const category = button.dataset.category;
+    button.addEventListener("click", function () {
+        const category = this.getAttribute("data-category");
 
         cards.forEach(card => {
-            if (category === "all" || card.dataset.category === category) {
-                card.style.display = "";
+            const cardCategory = card.getAttribute("data-category");
+
+            if (category === "all" || cardCategory === category) {
+                card.style.display = "block";
             } else {
                 card.style.display = "none";
             }
