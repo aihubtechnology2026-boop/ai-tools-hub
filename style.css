@@ -143,4 +143,30 @@ footer{
     width:45px;
     height:45px;
     border-radius:50%;
+}.categories{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.category-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:20px;
+}
+
+.category-btn{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.category-btn:hover{
+    background:#2563eb;
 }
