@@ -170,3 +170,29 @@ footer{
 .category-btn:hover{
     background:#2563eb;
 }
+.categories{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.category-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.category-btn{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.category-btn:hover{
+    background:#2563eb;
+}
