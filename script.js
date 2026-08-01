@@ -1,16 +1,18 @@
-const searchInput = document.getElementById("search");
-const cards = document.querySelectorAll(".card");
+const search = document.getElementById("search");
 
-searchInput.addEventListener("keyup", function () {
-    const value = searchInput.value.toLowerCase();
+if (search) {
+    search.addEventListener("keyup", function () {
+        const value = search.value.toLowerCase();
+        const cards = document.querySelectorAll(".card");
 
-    cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
 
-        if (text.includes(value)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+            if (text.includes(value)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
     });
-});
+}
