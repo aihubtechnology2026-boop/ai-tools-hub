@@ -20,7 +20,7 @@ const cards = document.querySelectorAll(".tool-card");
 
 buttons.forEach(button => {
     button.addEventListener("click", function () {
-        alert("You clicked: " + this.getAttribute("data-category"));
+      this.getAttribute("data-category"));
 
         const category = this.getAttribute("data-category");
 
