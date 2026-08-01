@@ -1,37 +1,25 @@
-// Search
 const search = document.getElementById("search");
+const cards = document.querySelectorAll(".tool-card");
+const categoryButtons = document.querySelectorAll(".category-btn");
 
-if (search) {
-    search.addEventListener("keyup", function () {
-        const value = search.value.toLowerCase();
-        const cards = document.querySelectorAll(".tool-card");
+function filterTools() {
+  const searchValue = search ? search.value.toLowerCase().trim() : "";
+  const activeCategory = document.querySelector(".category-btn.active")?.dataset.category || "all";
 
-        cards.forEach(card => {
-            const text = card.textContent.toLowerCase();
-
-            card.style.display = text.includes(value) ? "" : "none";
-        });
-    });
+  cards.forEach((card) => {
+    const matchesSearch = card.textContent.toLowerCase().includes(searchValue);
+    const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+    card.style.display = matchesSearch && matchesCategory ? "" : "none";
+  });
 }
 
-// Category Filter
-const buttons = document.querySelectorAll(".category-btn");
-const cards = document.querySelectorAll(".tool-card");
+if (search) search.addEventListener("input", filterTools);
 
-buttons.forEach(button => {
-    button.addEventListener("click", function () {
-      this.getAttribute("data-category"));
-
-        const category = this.getAttribute("data-category");
-
-        cards.forEach(card => {
-            const cardCategory = card.getAttribute("data-category");
-
-            if (category === "all" || cardCategory === category) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
+categoryButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!button.dataset.category) return;
+    categoryButtons.forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+    filterTools();
+  });
 });
