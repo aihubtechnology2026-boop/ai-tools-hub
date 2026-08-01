@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools - AIHUB</title>
+    <title>AIHUB - AI Tools</title>
+
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
 <body>
 
-<nav>
-    <h1>AIHUB</h1>
+<nav class="navbar">
+    <div class="logo">
+        <img src="images/logo.png" alt="AIHUB Logo">
+        <span>AIHUB</span>
+    </div>
 
-    <div>
+    <div class="menu">
         <a href="index.html">Home</a>
         <a href="tools.html">Tools</a>
         <a href="about.html">About</a>
@@ -19,79 +24,59 @@
     </div>
 </nav>
 
-<section style="padding:60px 10%;">
-    <h2>🤖 AI Tools</h2>
-<h2>🤖 AI Chatbots</h2>  
-<div class="card">
-        <h3><i class="fa-solid fa-robot"></i> ChatGPT</h3>
-        <p>AI assistant for writing, coding, and learning.</p>
-    </div>
-
-    <div class="card">
-        <h3>Midjourney</h3>
-        <p>Create amazing AI-generated images.</p>
-    </div>
-
-    <div class="card">
-        <h3>Runway</h3>
-        <p>Create and edit videos with AI.</p>
-    </div>
-
-    <div class="card">
-        <h3>ElevenLabs</h3>
-        <p>Generate realistic AI voices.</p>
-    </div>
+<section class="hero">
+    <h1>🤖 AI Tools Directory</h1>
+    <p>Discover the best AI tools for every task.</p>
 </section>
 
-<footer>
-    <p>© 2026 AIHUB. All Rights Reserved.</p>
-</footer>
+<section class="featured">
 
-</body><nav>
-    <h1>AIHUB</h1>
-    <div>
-        <a href="index.html">Home</a>
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
-</nav>
-<h2>💻 AI for Developers</h2>
-    <div class="card">
-    <h3>💻 GitHub Copilot</h3>
-    <p>AI coding assistant for developers.</p>
-    <a href="https://github.com/features/copilot" target="_blank">Open Tool</a>
-</div>
-<h2>🎨 AI for Creators</h2>
-<div class="card">
-    <h3>🎙️ ElevenLabs</h3>
-    <p>Create realistic AI voices.</p>
-    <a href="https://elevenlabs.io" target="_blank">Open Tool</a>
-</div>
+    <h2>Popular AI Tools</h2>
 
-<div class="card">
-    <h3>🖼️ Leonardo AI</h3>
-    <p>Generate high-quality AI artwork.</p>
-    <a href="https://leonardo.ai" target="_blank">Open Tool</a>
-</div>
-<section class="tools">
+    <div class="tools-grid">
 
-    <div class="card">
-        <h3>🤖 ChatGPT</h3>
-        <p>AI assistant for writing, coding, and learning.</p>
-        <a href="https://chatgpt.com" target="_blank">Open Tool</a>
-    </div>
+        <div class="tool-card">
+            <i class="fas fa-robot"></i>
+            <h3>ChatGPT</h3>
+            <p>Writing, coding, learning, and brainstorming.</p>
+            <a href="https://chatgpt.com" target="_blank" class="btn">Open</a>
+        </div>
 
-    <div class="card">
-        <h3>🎨 Canva AI</h3>
-        <p>Create graphics and presentations with AI.</p>
-        <a href="https://www.canva.com" target="_blank">Open Tool</a>
-    </div>
+        <div class="tool-card">
+            <i class="fas fa-comments"></i>
+            <h3>Claude</h3>
+            <p>AI assistant by Anthropic.</p>
+            <a href="https://claude.ai" target="_blank" class="btn">Open</a>
+        </div>
 
-    <div class="card">
-        <h3>🎥 Runway</h3>
-        <p>Create and edit videos using AI.</p>
-        <a href="https://runwayml.com" target="_blank">Open Tool</a>
+        <div class="tool-card">
+            <i class="fas fa-star"></i>
+            <h3>Google Gemini</h3>
+            <p>Google's AI assistant.</p>
+            <a href="https://gemini.google.com" target="_blank" class="btn">Open</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-image"></i>
+            <h3>Midjourney</h3>
+            <p>Create amazing AI images.</p>
+            <a href="https://www.midjourney.com" target="_blank" class="btn">Open</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-video"></i>
+            <h3>Runway</h3>
+            <p>AI video generation and editing.</p>
+            <a href="https://runwayml.com" target="_blank" class="btn">Open</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-code"></i>
+            <h3>GitHub Copilot</h3>
+            <p>AI coding assistant.</p>
+            <a href="https://github.com/features/copilot" target="_blank" class="btn">Open</a>
+        </div>
+
     </div>
 
 </section>
@@ -99,5 +84,8 @@
 <footer>
     <p>© 2026 AIHUB. All Rights Reserved.</p>
 </footer>
+
+<script src="script.js"></script>
+
 </body>
-</html>
+    </html>
