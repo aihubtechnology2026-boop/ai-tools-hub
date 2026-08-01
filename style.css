@@ -97,3 +97,36 @@ footer{
     background:#111827;
     margin-top:60px;
 }
+.featured{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.tools-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:30px;
+}
+
+.tool-card{
+    background:#1e293b;
+    border-radius:15px;
+    padding:25px;
+    width:300px;
+}
+
+.tool-card i{
+    font-size:40px;
+    color:#3b82f6;
+    margin-bottom:15px;
+}
+
+.tool-card h3{
+    margin-bottom:10px;
+}
+
+.tool-card p{
+    margin-bottom:20px;
+}
