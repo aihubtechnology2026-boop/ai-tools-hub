@@ -1,4 +1,5 @@
 alert("JavaScript is working!");
+
 // Search
 const search = document.getElementById("search");
 
