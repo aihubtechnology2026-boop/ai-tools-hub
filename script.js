@@ -20,12 +20,10 @@ const cards = document.querySelectorAll(".tool-card");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-        const category = button.textContent
-            .replace(/[^\w]/g, "")
-            .toLowerCase();
+        const category = button.dataset.category;
 
         cards.forEach(card => {
-            if (card.dataset.category === category) {
+            if (category === "all" || card.dataset.category === category) {
                 card.style.display = "";
             } else {
                 card.style.display = "none";
