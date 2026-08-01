@@ -16,3 +16,21 @@ if (search) {
         });
     });
 }
+const search = document.getElementById("search");
+
+if (search) {
+    search.addEventListener("keyup", function () {
+        const value = search.value.toLowerCase();
+        const cards = document.querySelectorAll(".tool-card");
+
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+
+            if (text.includes(value)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+}
