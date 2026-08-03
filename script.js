@@ -36,13 +36,24 @@ favoriteButtons.forEach(button => {
 });
 const themeToggle = document.getElementById("themeToggle");
 
+// Load saved theme
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    if (themeToggle) {
+        themeToggle.textContent = "☀️";
+    }
+}
+
 if (themeToggle) {
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
 
-        themeToggle.textContent =
-            document.body.classList.contains("light-mode")
-                ? "☀️"
-                : "🌙";
+        if (document.body.classList.contains("light-mode")) {
+            themeToggle.textContent = "☀️";
+            localStorage.setItem("theme", "light");
+        } else {
+            themeToggle.textContent = "🌙";
+            localStorage.setItem("theme", "dark");
+        }
     });
 }
