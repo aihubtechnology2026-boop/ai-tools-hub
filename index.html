@@ -1,46 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIHUB - WELCOME TO AIHUB</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIHUB - Discover the Best AI Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
-  <nav class="navbar"><button id="themeToggle" class="theme-btn">🌙</button><div class="logo"><img src="images/logo.png" alt="AIHUB Logo"><span>AIHUB</span></div><div class="menu"><a href="index.html">Home</a><a href="tools.html">Tools</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></nav>
-  <header class="hero"><h1>Discover the Future of AI</h1><p>Find the best AI tools for writing, coding, design, video creation, productivity, and more.</p><a href="tools.html" class="btn">Explore AI Tools</a></header>
-  <section class="stats"><div class="stat"><h2>100+</h2><p>AI Tools</p></div><div class="stat"><h2>50+</h2><p>Tutorials</p></div><div class="stat"><h2>10K+</h2><p>Visitors Goal</p></div></section>
-  <section class="categories"><h2>Browse by Category</h2><div class="category-buttons"><button class="category-btn">✍️ Writing</button><button class="category-btn">🎨 Image</button><button class="category-btn">🎥 Video</button><button class="category-btn">💻 Coding</button><button class="category-btn">📈 Productivity</button></div></section>
-  <section class="featured"><h2>⭐ Featured AI Tools</h2><div class="tools-grid">
-   <section class="featured">
 
-    <h2>🏆 Tool of the Week</h2>
+<!-- Navigation -->
+<nav class="navbar">
 
-    <div class="tool-card" style="max-width:700px;margin:auto;">
+    <div class="logo">
+        <img src="images/logo.png" alt="AIHUB Logo">
+        <span>AIHUB</span>
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <button id="themeToggle" class="theme-btn">🌙</button>
+
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+
+    <h1>Discover the Future of AI</h1>
+
+    <p>
+        Explore the best AI tools for writing, coding, design,
+        video creation, productivity, and much more.
+    </p>
+
+    <a href="tools.html" class="btn">
+        Explore AI Tools
+    </a>
+
+</header>
+
+<!-- Statistics -->
+<section class="stats">
+
+    <div class="stat">
+        <h2>100+</h2>
+        <p>AI Tools</p>
+    </div>
+
+    <div class="stat">
+        <h2>50+</h2>
+        <p>Tutorials</p>
+    </div>
+
+    <div class="stat">
+        <h2>10K+</h2>
+        <p>Visitors Goal</p>
+    </div>
+
+</section>
+
+<!-- Categories -->
+<section class="categories">
+
+    <h2>Browse by Category</h2>
+
+    <div class="category-buttons">
+
+        <button class="category-btn active" data-category="all">
+            🌍 All
+        </button>
+
+        <button class="category-btn" data-category="chat">
+            💬 Chat
+        </button>
+
+        <button class="category-btn" data-category="image">
+            🎨 Image
+        </button>
+
+        <button class="category-btn" data-category="video">
+            🎥 Video
+        </button>
+
+        <button class="category-btn" data-category="productivity">
+            📈 Productivity
+        </button>
+
+    </div>
+
+</section>
+
+<!-- Featured Tool -->
+<section class="featured">
+
+    <h2>🏆 Featured Tool of the Week</h2>
+
+    <div class="tool-card" data-category="chat">
+
         <i class="fas fa-robot"></i>
 
         <h3>ChatGPT</h3>
-
-        <p>
-            ChatGPT is one of the most powerful AI assistants for writing,
-            coding, learning, brainstorming, and productivity.
-        </p>
 
         <div class="rating">
             ⭐⭐⭐⭐⭐ <span>4.9/5</span>
         </div>
 
-        <a href="https://chatgpt.com" target="_blank" class="btn">
+        <p>
+            ChatGPT helps you write, learn, code, brainstorm,
+            translate, and solve problems faster.
+        </p>
+
+        <a href="https://chatgpt.com"
+           target="_blank"
+           class="btn">
             Try ChatGPT
         </a>
+
     </div>
 
-   </section> <div class="tool-card"><i class="fas fa-robot"></i><h3>ChatGPT</h3><div class="rating" aria-label="Rated 4.9 out of 5">★★★★★ <span>4.9/5</span></div><p>AI assistant for writing, coding, brainstorming, and learning.</p><a href="https://chatgpt.com" target="_blank" rel="noopener" class="btn">Open</a></div>
-    <div class="tool-card"><i class="fas fa-palette"></i><h3>Canva AI</h3><div class="rating" aria-label="Rated 4.8 out of 5">★★★★★ <span>4.8/5</span></div><p>Create presentations, graphics, and social media content.</p><a href="https://www.canva.com" target="_blank" rel="noopener" class="btn">Open</a></div>
-    <div class="tool-card"><i class="fas fa-video"></i><h3>Runway</h3><div class="rating" aria-label="Rated 4.7 out of 5">★★★★★ <span>4.7/5</span></div><p>Create and edit videos using powerful AI tools.</p><a href="https://runwayml.com" target="_blank" rel="noopener" class="btn">Open</a></div>
-  </div></section>
-  <footer><p>© 2026 AIHUB. All Rights Reserved.</p></footer>
-  <script src="script.js"></script>
+</section>
+
+<!-- Popular Tools -->
+<section class="featured">
+
+    <h2>⭐ Popular AI Tools</h2>
+
+    <div class="tools-grid">
+
+        <div class="tool-card" data-category="chat">
+
+            <i class="fas fa-robot"></i>
+
+            <h3>ChatGPT</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ <span>4.9/5</span>
+            </div>
+
+            <p>AI assistant for writing, coding and learning.</p>
+
+            <a href="https://chatgpt.com"
+               target="_blank"
+               class="btn">
+               Open
+            </a>
+
+        </div>
+
+        <div class="tool-card" data-category="image">
+
+            <i class="fas fa-palette"></i>
+
+            <h3>Canva AI</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ <span>4.8/5</span>
+            </div>
+
+            <p>Create graphics, presentations and social media designs.</p>
+
+            <a href="https://www.canva.com"
+               target="_blank"
+               class="btn">
+               Open
+            </a>
+
+        </div>
+
+        <div class="tool-card" data-category="video">
+
+            <i class="fas fa-video"></i>
+
+            <h3>Runway</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆ <span>4.7/5</span>
+            </div>
+
+            <p>Create and edit AI-powered videos.</p>
+
+            <a href="https://runwayml.com"
+               target="_blank"
+               class="btn">
+               Open
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+
+    <p>© 2026 AIHUB. All Rights Reserved.</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
-</html>
+              </html>
