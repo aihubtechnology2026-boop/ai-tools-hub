@@ -1,90 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - AIHUB</title>
-
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - AI Directory</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); }
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header nav a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+    header nav a:hover, header nav a.active { color: var(--primary); }
+    .container { max-width: 600px; margin: 3rem auto; padding: 0 1rem; }
+    form { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    label { font-size: 0.9rem; font-weight: 600; }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #4f46e5; }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>📞 Contact Us</h1>
+    <nav>
+      <a href="tools.html">Tools</a>
+      <a href="favorites.html">Favorites ❤️</a>
+      <a href="about.html">About ℹ️</a>
+      <a href="contact.html" class="active">Contact 📞</a>
+    </nav>
+  </header>
 
-<nav class="navbar">
-    <div class="logo">
-        <img src="images/logo.png" alt="AIHUB Logo">
-        <span>AIHUB</span>
-    </div>
-
-    <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <h1>📬 Contact AIHUB</h1>
-    <p>Questions, suggestions, or collaboration? We'd love to hear from you.</p>
-</section>
-
-<section class="featured">
-
-<h2>Get in Touch</h2>
-
-<div class="tools-grid">
-
-<div class="tool-card">
-<i class="fas fa-envelope fa-3x"></i>
-<h3>Email</h3>
-<p>aihubtechnology2026@gmail.com</p>
-<a href="mailto:aihubtechnology2026@gmail.com" class="btn">Send Email</a>
-</div>
-
-<div class="tool-card">
-<i class="fab fa-youtube fa-3x"></i>
-<h3>YouTube</h3>
-<p>Watch AI tutorials and tool reviews.</p>
-<a href="https://youtube.com/@iahub2026" target="_blank" class="btn">Visit Channel</a>
-</div>
-
-<div class="tool-card">
-<i class="fas fa-mug-hot fa-3x"></i>
-<h3>Support AIHUB</h3>
-<p>If you enjoy AIHUB, you can support the project on Ko-fi.</p>
-<a href="https://ko-fi.com/buqatti2002" target="_blank" class="btn">Buy Me a Coffee</a>
-</div>
-
-</div>
-
-</section>
-
-<section class="featured">
-
-<h2>Send a Message</h2>
-
-<form style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-
-<input type="text" placeholder="Ai Hub Technology" required>
-
-<input type="email" placeholder="aihubtechonlogy2026@gmail.com" required>
-
-<textarea rows="6" placeholder="Your Message" required></textarea>
-
-<button class="btn">Send Message</button>
-
-</form>
-
-<p style="text-align:center;margin-top:20px;">
-*This form is for design purposes. To receive messages, you'll later connect it to Formspree or another form service.*
-</p>
-
-</section>
-
-<footer>
-<p>© 2026 AIHUB. All Rights Reserved.</p>
-</footer>
-
+  <div class="container">
+    <form onsubmit="event.preventDefault(); alert('Thank you for reaching out!');">
+      <h2>Get in Touch</h2>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" required placeholder="Your Name">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required placeholder="Suggest a new tool or ask a question..."></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 </body>
 </html>
