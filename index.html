@@ -1,182 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIHUB - Discover the Best AI Tools</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIHUB - Discover the Best AI Tools</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- Navigation -->
-<nav class="navbar">
-
-    <div class="logo">
-        <img src="images/logo.png" alt="AIHUB Logo">
-        <span>AIHUB</span>
-    </div>
-
-    <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
-
-    <button id="themeToggle" class="theme-btn">🌙</button>
-
-</nav>
-
-<!-- Hero -->
-<header class="hero">
-
-    <h1>Discover the Future of AI</h1>
-
-    <p>
-        Explore the best AI tools for writing, coding, design,
-        video creation, productivity, and much more.
-    </p>
-
-    <a href="tools.html" class="btn">
-        Explore AI Tools
+  <!-- Navigation Bar -->
+  <header>
+    <a href="index.html" class="logo-container">
+      <!-- Neon Robot SVG Logo -->
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00c6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+        <circle cx="12" cy="5" r="2"></circle>
+        <path d="M12 7v4"></path>
+        <line x1="8" y1="16" x2="8" y2="16"></line>
+        <line x1="16" y1="16" x2="16" y2="16"></line>
+      </svg>
+      <div class="logo-text">AI<span>HUB</span></div>
     </a>
 
-</header>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-<!-- Statistics -->
-<section class="stats">
+    <a href="contact.html" class="btn-subscribe">
+      Subscribe ▶
+    </a>
+  </header>
 
-    <div class="stat">
-        <h2>100+</h2>
-        <p>AI Tools</p>
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="pill-badge">
+        ✦ Your Ultimate AI Resource
+      </div>
+      <h1 class="hero-title">
+        Discover the Best <br>
+        <span class="gradient-text">AI Tools</span>
+      </h1>
+      <p class="hero-desc">
+        Explore handpicked AI tools, tutorials, news, and resources to boost your productivity and stay ahead.
+      </p>
 
-    <div class="stat">
-        <h2>50+</h2>
-        <p>Tutorials</p>
-    </div>
-
-    <div class="stat">
-        <h2>10K+</h2>
-        <p>Visitors Goal</p>
-    </div>
-
-</section>
-
-
-
-<!-- Featured Tool -->
-<section class="featured">
-
-    <h2>🏆 Featured Tool of the Week</h2>
-
-    <div class="tool-card" data-category="chat">
-
-        <i class="fas fa-robot"></i>
-
-        <h3>ChatGPT</h3>
-
-        <div class="rating">
-            ⭐⭐⭐⭐⭐ <span>4.9/5</span>
-        </div>
-
-        <p>
-            ChatGPT helps you write, learn, code, brainstorm,
-            translate, and solve problems faster.
-        </p>
-
-        <a href="https://chatgpt.com"
-           target="_blank"
-           class="btn">
-            Try ChatGPT
+      <div class="hero-actions">
+        <a href="tools.html" class="btn-primary">
+          Explore AI Tools →
         </a>
-
+        <a href="about.html" class="btn-secondary">
+          Watch Videos ▶
+        </a>
+      </div>
     </div>
 
-</section>
+    <!-- Futuristic Brain/Robot Visual Box -->
+    <div class="hero-visual">
+      <div class="visual-glow"></div>
+      <div class="visual-container">
+        <div class="ai-brain-icon">🧠</div>
+        <h3 style="color:#fff; margin-bottom: 0.5rem;">AI Command Center</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Connecting you to 30+ cutting edge intelligence models.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Popular Tools -->
-<section class="featured">
-
-    <h2>⭐ Popular AI Tools</h2>
-
-    <div class="tools-grid">
-
-        <div class="tool-card" data-category="chat">
-
-            <i class="fas fa-robot"></i>
-
-            <h3>ChatGPT</h3>
-
-            <div class="rating">
-                ⭐⭐⭐⭐⭐ <span>4.9/5</span>
-            </div>
-
-            <p>AI assistant for writing, coding and learning.</p>
-
-            <a href="https://chatgpt.com"
-               target="_blank"
-               class="btn">
-               Open
-            </a>
-
-        </div>
-
-        <div class="tool-card" data-category="image">
-
-            <i class="fas fa-palette"></i>
-
-            <h3>Canva AI</h3>
-
-            <div class="rating">
-                ⭐⭐⭐⭐⭐ <span>4.8/5</span>
-            </div>
-
-            <p>Create graphics, presentations and social media designs.</p>
-
-            <a href="https://www.canva.com"
-               target="_blank"
-               class="btn">
-               Open
-            </a>
-
-        </div>
-
-        <div class="tool-card" data-category="video">
-
-            <i class="fas fa-video"></i>
-
-            <h3>Runway</h3>
-
-            <div class="rating">
-                ⭐⭐⭐⭐☆ <span>4.7/5</span>
-            </div>
-
-            <p>Create and edit AI-powered videos.</p>
-
-            <a href="https://runwayml.com"
-               target="_blank"
-               class="btn">
-               Open
-            </a>
-
-        </div>
-
+  <!-- Bottom Feature Nav Cards -->
+  <section class="features-container">
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3 class="feature-title">Top AI Tools</h3>
+      <p class="feature-desc">Handpicked software to boost your daily workflow and productivity.</p>
+      <a href="tools.html" class="feature-link">Explore →</a>
     </div>
 
-</section>
+    <div class="feature-card">
+      <div class="feature-icon">🎓</div>
+      <h3 class="feature-title">Tutorials</h3>
+      <p class="feature-desc">Step-by-step guides for prompts, automation, and API integrations.</p>
+      <a href="about.html" class="feature-link">Learn More →</a>
+    </div>
 
-<!-- Footer -->
-<footer>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3 class="feature-title">Latest News</h3>
+      <p class="feature-desc">Stay updated with breaking developments in artificial intelligence.</p>
+      <a href="about.html" class="feature-link">Read News →</a>
+    </div>
 
-    <p>© 2026 AIHUB. All Rights Reserved.</p>
-
-</footer>
-
-<script src="script.js"></script>
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <h3 class="feature-title">AI Community</h3>
+      <p class="feature-desc">Join a growing network of tech builders, creators, and enthusiasts.</p>
+      <a href="contact.html" class="feature-link">Join Now →</a>
+    </div>
+  </section>
 
 </body>
-              </html>
+</html>
