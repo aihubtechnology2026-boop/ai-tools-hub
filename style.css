@@ -284,3 +284,26 @@ footer{
 .favorite-btn:hover{
     background:#ef4444;
 }
+.theme-btn{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.light-mode{
+    background:#f8fafc;
+    color:#111827;
+}
+
+.light-mode .tool-card{
+    background:white;
+    color:#111827;
+}
+
+.light-mode .navbar{
+    background:white;
+}
