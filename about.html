@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - AIHUB</title>
-    <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - AI Directory</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); }
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header nav a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+    header nav a:hover, header nav a.active { color: var(--primary); }
+    .container { max-width: 800px; margin: 3rem auto; padding: 0 1rem; line-height: 1.6; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+    h1 { margin-bottom: 1rem; }
+    p { color: var(--text-muted); margin-bottom: 1.25rem; }
+  </style>
+</head>
 <body>
+  <header>
+    <h1>ℹ️ About</h1>
+    <nav>
+      <a href="tools.html">Tools</a>
+      <a href="favorites.html">Favorites ❤️</a>
+      <a href="about.html" class="active">About ℹ️</a>
+      <a href="contact.html">Contact 📞</a>
+    </nav>
+  </header>
 
-<nav>
-    <h1>AIHUB</h1>
-
-    <div>
-        <a href="index.html">Home</a>
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+  <div class="container">
+    <div class="card">
+      <h1>About AI Directory</h1>
+      <p>Welcome to the ultimate directory for discovering and organizing modern Artificial Intelligence software, services, and developer products.</p>
+      <p>Our platform indexes over 30+ cutting-edge AI models across various workflows including software engineering, visual arts, voice generation, writing assistance, and workflow automation.</p>
+      <p>Save your favorite items locally for quick access anytime!</p>
     </div>
-</nav>
-
-<section style="padding:80px 10%; text-align:center;">
-    <h2>About AIHUB</h2>
-
-    <p>
-        AIHUB is a website dedicated to discovering the best AI tools
-        for productivity, creativity, coding, education, and business.
-    </p>
-
-    <p>
-        Our mission is to help everyone find the right AI tool quickly
-        and easily.
-    </p>
-</section>
-
+  </div>
 </body>
 </html>
