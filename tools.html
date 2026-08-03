@@ -1,76 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIHUB - AI Tools Directory</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Directory</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 2rem; }
+
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    header nav a:hover, header nav a.active { color: var(--primary); }
+
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .search-bar {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .category-select {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+    
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-free { background: #059669; color: #fff; }
+    .badge-freemium { background: #d97706; color: #fff; }
+    .badge-paid { background: #dc2626; color: #fff; }
+
+    .card-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0.75rem 0; flex-grow: 1; }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .rating { color: #f59e0b; font-weight: bold; }
+
+    .fav-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+    }
+    .fav-btn.active { color: #ef4444; }
+  </style>
 </head>
 <body>
 
-<nav class="navbar">
+  <header>
+    <h1>🤖 AI Directory</h1>
+    <nav>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="favorites.html">Favorites ❤️</a>
+      <a href="about.html">About ℹ️</a>
+      <a href="contact.html">Contact 📞</a>
+    </nav>
+  </header>
 
-    <div class="logo">
-        <img src="images/logo.png" alt="AIHUB Logo">
-        <span>AIHUB</span>
+  <div class="container">
+    <div class="controls">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Search AI tools...">
+      <select id="categorySelect" class="category-select">
+        <option value="All">All Categories</option>
+        <option value="Text & Chat">Text & Chat</option>
+        <option value="Image Generation">Image Generation</option>
+        <option value="Code & Dev">Code & Dev</option>
+        <option value="Audio & Voice">Audio & Voice</option>
+        <option value="Video & Animation">Video & Animation</option>
+        <option value="Productivity">Productivity</option>
+      </select>
     </div>
 
-    <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
+    <div class="grid" id="toolsGrid"></div>
+  </div>
 
-    <button id="themeToggle" class="theme-btn">🌙</button>
+  <script>
+    const tools = [
+      { id: 1, name: "ChatGPT", category: "Text & Chat", badge: "Freemium", rating: 4.8, desc: "Conversational AI model for drafting, answering, and brainstorming." },
+      { id: 2, name: "Claude", category: "Text & Chat", badge: "Freemium", rating: 4.9, desc: "Next-gen AI assistant built for safety, reasoning, and long context tasks." },
+      { id: 3, name: "Midjourney", category: "Image Generation", badge: "Paid", rating: 4.8, desc: "High-quality text-to-image artwork and photorealistic visual generator." },
+      { id: 4, name: "DALL·E 3", category: "Image Generation", badge: "Paid", rating: 4.6, desc: "OpenAI's advanced text-to-image model integrated into ChatGPT." },
+      { id: 5, name: "GitHub Copilot", category: "Code & Dev", badge: "Paid", rating: 4.7, desc: "AI pair programmer suggesting autocomplete lines and functions." },
+      { id: 6, name: "Cursor", category: "Code & Dev", badge: "Freemium", rating: 4.9, desc: "An AI-first code editor designed for high productivity." },
+      { id: 7, name: "ElevenLabs", category: "Audio & Voice", badge: "Freemium", rating: 4.8, desc: "Realistic text-to-speech voice generator and cloning software." },
+      { id: 8, name: "Sora", category: "Video & Animation", badge: "Paid", rating: 4.7, desc: "Create realistic and imaginative videos from text prompts." },
+      { id: 9, name: "Notion AI", category: "Productivity", badge: "Paid", rating: 4.5, desc: "Integrated AI workspace helper for writing, summarizing, and editing." },
+      { id: 10, name: "Perplexity AI", category: "Text & Chat", badge: "Freemium", rating: 4.8, desc: "Conversational search engine with real-time citations and sources." },
+      { id: 11, name: "Stable Diffusion", category: "Image Generation", badge: "Free", rating: 4.6, desc: "Open-source, powerful image generation deep learning model." },
+      { id: 12, name: "v0 by Vercel", category: "Code & Dev", badge: "Freemium", rating: 4.7, desc: "Generative UI system powered by AI that outputs React/Tailwind code." },
+      { id: 13, name: "Suno", category: "Audio & Voice", badge: "Freemium", rating: 4.8, desc: "Generate full songs with lyrics and vocals from text descriptions." },
+      { id: 14, name: "Runway Gen-2", category: "Video & Animation", badge: "Freemium", rating: 4.5, desc: "Text-to-video and image-to-video generative AI Suite." },
+      { id: 15, name: "Grammarly", category: "Productivity", badge: "Freemium", rating: 4.6, desc: "AI writing tool for grammar, tone, clarity, and phrasing." },
+      { id: 16, name: "Google Gemini", category: "Text & Chat", badge: "Freemium", rating: 4.7, desc: "Google's multimodal model capable of understanding text, code, audio, and video." },
+      { id: 17, name: "Leonardo.Ai", category: "Image Generation", badge: "Freemium", rating: 4.7, desc: "Feature-rich asset creation tool for visual production and artwork." },
+      { id: 18, name: "Replit Ghostwriter", category: "Code & Dev", badge: "Paid", rating: 4.4, desc: "In-browser AI coding assistant integrated directly into Replit IDE." },
+      { id: 19, name: "Whisper", category: "Audio & Voice", badge: "Free", rating: 4.9, desc: "Robust speech recognition model trained on thousands of hours of audio." },
+      { id: 20, name: "Pika Labs", category: "Video & Animation", badge: "Freemium", rating: 4.6, desc: "Idea-to-video platform that brings creative concepts to life." },
+      { id: 21, name: "Otter.ai", category: "Productivity", badge: "Freemium", rating: 4.5, desc: "Automated meeting notes, audio transcription, and real-time summaries." },
+      { id: 22, name: "Mistral AI", category: "Text & Chat", badge: "Free", rating: 4.7, desc: "High-performance open-weights LLMs for global developers." },
+      { id: 23, name: "Canva Magic Studio", category: "Image Generation", badge: "Freemium", rating: 4.5, desc: "AI visual design tools for generating graphics and magic edits." },
+      { id: 24, name: "Tabnine", category: "Code & Dev", badge: "Freemium", rating: 4.3, desc: "AI code completion assistant emphasizing code privacy and security." },
+      { id: 25, name: "Descript", category: "Audio & Voice", badge: "Freemium", rating: 4.7, desc: "Edit audio and video files by editing text transcripts." },
+      { id: 26, name: "HeyGen", category: "Video & Animation", badge: "Freemium", rating: 4.8, desc: "Create realistic AI avatar videos for teams and businesses." },
+      { id: 27, name: "Zapier Central", category: "Productivity", badge: "Freemium", rating: 4.4, desc: "AI bot workplace automation tool across thousands of apps." },
+      { id: 28, name: "DeepL Translate", category: "Text & Chat", badge: "Freemium", rating: 4.9, desc: "Accurate neural network translation system for global communications." },
+      { id: 29, name: "Krea AI", category: "Image Generation", badge: "Freemium", rating: 4.8, desc: "Real-time AI visual generation and upscaling tool." },
+      { id: 30, name: "Phind", category: "Code & Dev", badge: "Free", rating: 4.7, desc: "Search engine optimized specifically for developer technical questions." },
+      { id: 31, name: "Lovo.ai", category: "Audio & Voice", badge: "Paid", rating: 4.4, desc: "Award-winning voice generator software with human-like voices." },
+      { id: 32, name: "Synthesia", category: "Video & Animation", badge: "Paid", rating: 4.6, desc: "Turn text into video presentation slides using custom AI avatars." }
+    ];
 
-</nav>
+    let favorites = JSON.parse(localStorage.getItem('ai_favs')) || [];
 
-<header class="hero">
-    <h1>AI Tools Directory</h1>
-    <p>Search and discover the best AI tools in one place.</p>
-</header>
+    function saveFavorites() {
+      localStorage.setItem('ai_favs', JSON.stringify(favorites));
+    }
 
-<input
-    type="text"
-    id="search"
-    placeholder="🔍 Search AI tools..."
->
+    function toggleFavorite(id) {
+      if (favorites.includes(id)) {
+        favorites = favorites.filter(favId => favId !== id);
+      } else {
+        favorites.push(id);
+      }
+      saveFavorites();
+      renderTools();
+    }
 
-<section class="categories">
+    function renderTools() {
+      const searchVal = document.getElementById('searchInput').value.toLowerCase();
+      const catVal = document.getElementById('categorySelect').value;
+      const grid = document.getElementById('toolsGrid');
 
-    <div class="category-buttons">
+      grid.innerHTML = '';
 
-        <button class="category-btn active" data-category="all">All</button>
-        <button class="category-btn" data-category="chat">Chat</button>
-        <button class="category-btn" data-category="image">Image</button>
-        <button class="category-btn" data-category="video">Video</button>
-        <button class="category-btn" data-category="coding">Coding</button>
-        <button class="category-btn" data-category="productivity">Productivity</button>
+      const filtered = tools.filter(tool => {
+        const matchesSearch = tool.name.toLowerCase().includes(searchVal) || tool.desc.toLowerCase().includes(searchVal);
+        const matchesCategory = catVal === 'All' || tool.category === catVal;
+        return matchesSearch && matchesCategory;
+      });
 
-    </div>
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1;">No AI tools match your criteria.</p>`;
+        return;
+      }
 
-</section>
+      filtered.forEach(tool => {
+        const isFav = favorites.includes(tool.id);
+        const badgeClass = tool.badge === 'Free' ? 'badge-free' : tool.badge === 'Paid' ? 'badge-paid' : 'badge-freemium';
 
-<section class="featured">
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div>
+            <div class="card-header">
+              <h3 class="card-title">${tool.name}</h3>
+              <span class="badge ${badgeClass}">${tool.badge}</span>
+            </div>
+            <p class="card-desc">${tool.desc}</p>
+          </div>
+          <div class="card-footer">
+            <span class="rating">★ ${tool.rating}</span>
+            <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite(${tool.id})">
+              ${isFav ? '❤️' : '🤍'}
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
 
-<h2>Popular AI Tools</h2>
+    document.getElementById('searchInput').addEventListener('input', renderTools);
+    document.getElementById('categorySelect').addEventListener('change', renderTools);
 
-<div class="tools-grid">
-
-<!-- We'll add all the tool cards next -->
-
-</div>
-
-</section>
-
-<footer>
-<p>© 2026 AIHUB. All Rights Reserved.</p>
-</footer>
-
-<script src="script.js"></script>
-
+    // Initial render
+    renderTools();
+  </script>
 </body>
 </html>
