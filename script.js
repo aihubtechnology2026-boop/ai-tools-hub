@@ -26,34 +26,28 @@ categoryButtons.forEach((button) => {
 const favoriteButtons = document.querySelectorAll(".favorite-btn");
 
 favoriteButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        if (button.textContent.includes("🤍")) {
-            button.textContent = "❤️ Favorited";
-        } else {
-            button.textContent = "🤍 Favorite";
-        }
-    });
-});
-const themeToggle = document.getElementById("themeToggle");
+    document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("themeToggle");
 
-// Load saved theme
-if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
-    if (themeToggle) {
-        themeToggle.textContent = "☀️";
-    }
-}
-
-if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-
-        if (document.body.classList.contains("light-mode")) {
+    // Load saved theme
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+        if (themeToggle) {
             themeToggle.textContent = "☀️";
-            localStorage.setItem("theme", "light");
-        } else {
-            themeToggle.textContent = "🌙";
-            localStorage.setItem("theme", "dark");
         }
-    });
-}
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+
+            if (document.body.classList.contains("light-mode")) {
+                themeToggle.textContent = "☀️";
+                localStorage.setItem("theme", "light");
+            } else {
+                themeToggle.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        });
+    }
+});
