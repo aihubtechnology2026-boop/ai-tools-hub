@@ -34,3 +34,15 @@ favoriteButtons.forEach(button => {
         }
     });
 });
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+        themeToggle.textContent =
+            document.body.classList.contains("light-mode")
+                ? "☀️"
+                : "🌙";
+    });
+}
