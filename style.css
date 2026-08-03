@@ -318,3 +318,38 @@ footer {
         max-width: 180px;
     }
    }
+/* ==========================
+   Search Bar
+========================== */
+
+#search {
+    width: 90%;
+    max-width: 600px;
+    padding: 15px;
+    margin: 25px auto;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--text);
+    font-size: 16px;
+}
+
+#search::placeholder {
+    color: var(--text-light);
+}
+
+/* Smooth scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better focus */
+
+button:focus,
+a:focus,
+input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
