@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIHUB - AI Tools</title>
+    <title>AIHUB - AI Tools Directory</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -11,6 +11,7 @@
 <body>
 
 <nav class="navbar">
+
     <div class="logo">
         <img src="images/logo.png" alt="AIHUB Logo">
         <span>AIHUB</span>
@@ -22,175 +23,54 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </div>
+
+    <button id="themeToggle" class="theme-btn">🌙</button>
+
 </nav>
 
-<section class="hero">
-    <h1>🤖 AI Tools Directory</h1>
-    <p>Discover the best AI tools for every task.</p>
-</section>
+<header class="hero">
+    <h1>AI Tools Directory</h1>
+    <p>Search and discover the best AI tools in one place.</p>
+</header>
+
+<input
+    type="text"
+    id="search"
+    placeholder="🔍 Search AI tools..."
+>
+
 <section class="categories">
 
-    <h2>Browse by Category</h2>
-
     <div class="category-buttons">
-        <button class="category-btn" data-category="chat">💬 Chat</button>
-<button class="category-btn" data-category="image">🎨 Image</button>
-<button class="category-btn" data-category="video">🎥 Video</button>
-<button class="category-btn" data-category="coding">💻 Coding</button>
-<button class="category-btn" data-category="audio">🎵 Audio</button>
-<button class="category-btn" data-category="productivity">📈 Productivity</button>
-<button class="category-btn" data-category="all">🌍 All</button>
+
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="chat">Chat</button>
+        <button class="category-btn" data-category="image">Image</button>
+        <button class="category-btn" data-category="video">Video</button>
+        <button class="category-btn" data-category="coding">Coding</button>
+        <button class="category-btn" data-category="productivity">Productivity</button>
+
     </div>
 
 </section>
+
 <section class="featured">
 
-    <h2>Popular AI Tools</h2>
-    <div style="text-align:center;margin:30px 0;">
-    <input
-        id="search"
-        type="text"
-        placeholder="🔍 Search AI tools..."
-        style="width:90%;max-width:500px;padding:15px;border-radius:10px;border:none;font-size:16px;">
-    </div>
+<h2>Popular AI Tools</h2>
 
-   <div class="tool-card" style="max-width:700px;margin:30px auto;">
-    <h3>🏆 Featured Tool of the Week</h3>
+<div class="tools-grid">
 
-    <h2>ChatGPT</h2>
-<div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>
-    <p>
-        ChatGPT is one of the world's most popular AI assistants for writing,
-        coding, studying, brainstorming, translation, and much more.
-    </p>
+<!-- We'll add all the tool cards next -->
 
-    <a href="https://chatgpt.com" target="_blank" class="btn">
-        Try ChatGPT
-    </a>
-   </div> <div class="tools-grid">
-
-        <div class="tool-card" data-category="chat">
-            <i class="fas fa-robot"></i>
-            <span class="badge top-pick">⭐ Top Pick</span>
-         <h3>ChatGPT</h3>
-         <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>Writing, coding, learning, and brainstorming.</p>
-          <a href="tool.html" class="btn">Learn More</a>
-<button class="favorite-btn" data-tool="chatgpt">🤍 Favorite</button>
-            <a href="https://chatgpt.com" target="_blank" class="btn">Open</a></div>
-        <div class="tool-card" data-category="chat">
-    <i class="fas fa-search"></i>
-    <h3>Perplexity AI</h3>
-<div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>    <p>AI-powered search engine for research and answers.</
-    <button class="favorite-btn" data-tool="perplexity">🤍 Favorite</button><a href="https://www.perplexity.ai" target="_blank" class="btn">Open</a>
 </div>
-
-<div class="tool-card" data-category="image">
-    <i class="fas fa-paint-brush"></i>
-    <h3>Leonardo AI</h3>
- <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>Create high-quality AI-generated artwork.</p>
-    <button class="favorite-btn" data-tool="leonardo">🤍 Favorite</button> <a href="https://leonardo.ai" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="audio">
-    <i class="fas fa-microphone"></i>
-    <h3>ElevenLabs</h3>
-<div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>    <p>Generate realistic AI voices in multiple languages.</p>
-   <button class="favorite-btn" data-tool="elevenlabs">🤍 Favorite</button> <a href="https://elevenlabs.io" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="audio">
-    <i class="fas fa-music"></i>
-    <h3>Suno AI</h3>
- <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>Create complete songs with AI.</p>
- <button class="favorite-btn" data-tool="suno">🤍 Favorite</button>  <a href="https://suno.com" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="coding">
-    <i class="fas fa-code"></i>
-    <h3>Cursor</h3>
- <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>AI-powered code editor for developers.</p>
-  <button class="favorite-btn" data-tool="cursor">🤍 Favorite</button>  <a href="https://cursor.com" target="_blank" class="btn">Open</a>
-</div
-
-<div class="tool-card" data-category="productivity">
-    <i class="fas fa-book"></i>
-    <h3>Notion AI</h3>
- <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>Write, summarize, and organize your notes.</p>
-  <button class="favorite-btn" data-tool="notion">🤍 Favorite</button>  <a href="https://www.notion.so/product/ai" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="productivity">
-    <i class="fas fa-spell-check"></i>
-    <h3>Grammarly</h3>
- <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>Improve your writing with AI assistance.</p>
-  <button class="favorite-btn" data-tool="grammarly">🤍 Favorite</button>  <a href="https://www.grammarly.com" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="productivity">
-    <i class="fas fa-file-powerpoint"></i>
-    <h3>Gamma</h3>
- <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>Create presentations with AI.</p>
- <button class="favorite-btn" data-tool="gamma">🤍 Favorite</button>   <a href="https://gamma.app" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="video">
-    <i class="fas fa-user-video"></i>
-    <h3>HeyGen</h3>
-<div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>    <p>Create AI avatar videos quickly.</p>
-  <button class="favorite-btn" data-tool="heygen">🤍 Favorite</button>  <a href="https://www.heygen.com" target="_blank" class="btn">Open</a>
-</div>
-
-<div class="tool-card" data-category="video">
-    <i class="fas fa-film"></i>
-    <h3>Synthesia</h3>
-<div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>    <p>Create professional AI videos with avatars.</p>
-<button class="favorite-btn" data-tool="synthesia">🤍 Favorite</button>  <a href="https://www.synthesia.io" target="_blank" class="btn">Open</a>
-</div>
-
-        <div class="tool-card" data-category="chat">
-            <i class="fas fa-comments"></i>
-            <h3>Claude</h3>
-       <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>     <p>AI assistant by Anthropic.</p>
-         <button class="favorite-btn" data-tool="claude">🤍 Favorite</button>   <a href="https://claude.ai" target="_blank" class="btn">Open</a>
-        </div>
-
-        <div class="tool-card" data-category="chat">
-            <i class="fas fa-star"></i>
-            <h3>Google Gemini</h3>
-      <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>      <p>Google's AI assistant.</p>
-          <button class="favorite-btn" data-tool="gemini">🤍 Favorite</button>  <a href="https://gemini.google.com" target="_blank" class="btn">Open</a>
-        </div>
-
-        <div class="tool-card" data-category="image">
-            <i class="fas fa-image"></i>
-            <h3>Midjourney</h3>
-       <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>     <p>Create amazing AI images.</p>
-          <button class="favorite-btn" data-tool="midjourney">🤍 Favorite</button>  <a href="https://www.midjourney.com" target="_blank" class="btn">Open</a>
-        </div>
-
-        <div class="tool-card" data-category="video">
-            <i class="fas fa-video"></i>
-            <h3>Runway</h3>
-         <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>   <p>AI video generation and editing.</p>
-         <button class="favorite-btn" data-tool="runway">🤍 Favorite</button>   <a href="https://runwayml.com" target="_blank" class="btn">Open</a>
-        </div>
-
-        <div class="tool-card" data-category="coding">
-            <i class="fas fa-code"></i>
-            <h3>GitHub Copilot</h3>
-        <div class="rating">⭐⭐⭐⭐⭐ <span>4.9/5</span></div>    <p>AI coding assistant.</p>
-          <button class="favorite-btn" data-tool="githubcopilot">🤍 Favorite</button>  <a href="https://github.com/features/copilot" target="_blank" class="btn">Open</a>
-        </div>
-
-    </div>
 
 </section>
 
 <footer>
-    <p>© 2026 AIHUB. All Rights Reserved.</p>
+<p>© 2026 AIHUB. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
 
 </body>
-    </html>
+</html>
