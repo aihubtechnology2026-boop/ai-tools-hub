@@ -268,3 +268,19 @@ footer{
     font-size: 14px;
     margin-left: 6px;
     }
+.favorite-btn{
+    display:block;
+    width:100%;
+    margin:12px 0;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#334155;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.favorite-btn:hover{
+    background:#ef4444;
+}
