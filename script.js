@@ -26,16 +26,24 @@ categoryButtons.forEach((button) => {
 const favoriteButtons = document.querySelectorAll(".favorite-btn");
 
 favoriteButtons.forEach(button => {
-    document.addEventListener("DOMContentLoaded", () => {
-    const themeToggle = document.getElementById("themeToggle");
+    const tool = button.dataset.tool;
 
-    // Load saved theme
-    if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-mode");
-        if (themeToggle) {
-            themeToggle.textContent = "☀️";
-        }
+    if (localStorage.getItem("favorite_" + tool) === "true") {
+        button.textContent = "❤️ Favorited";
     }
+
+    button.addEventListener("click", () => {
+        const isFavorite = button.textContent.includes("❤️");
+
+        if (isFavorite) {
+            button.textContent = "🤍 Favorite";
+            localStorage.setItem("favorite_" + tool, "false");
+        } else {
+            button.textContent = "❤️ Favorited";
+            localStorage.setItem("favorite_" + tool, "true");
+        }
+    });
+}); }
 
     if (themeToggle) {
         themeToggle.addEventListener("click", () => {
