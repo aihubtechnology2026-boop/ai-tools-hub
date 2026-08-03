@@ -23,3 +23,14 @@ categoryButtons.forEach((button) => {
     filterTools();
   });
 });
+const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+favoriteButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        if (button.textContent.includes("🤍")) {
+            button.textContent = "❤️ Favorited";
+        } else {
+            button.textContent = "🤍 Favorite";
+        }
+    });
+});
