@@ -4,29 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - AI Directory</title>
-  <style>
-    :root {
-      --primary: #6366f1;
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); }
-    header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    header nav a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
-    header nav a:hover, header nav a.active { color: var(--primary); }
-    .container { max-width: 800px; margin: 3rem auto; padding: 0 1rem; line-height: 1.6; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
-    h1 { margin-bottom: 1rem; }
-    p { color: var(--text-muted); margin-bottom: 1.25rem; }
-  </style>
+  <meta name="description" content="About AIHUB — mission, scope, and what we index for AI tools and resources.">
+  <meta property="og:title" content="About AIHUB - AI Tools Directory">
+  <meta property="og:description" content="About AIHUB — mission, scope, and what we index for AI tools and resources.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/chatgpt.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>ℹ️ About</h1>
+    <div class="logo">
+      <!-- Inline SVG logo -->
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00c6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+        <circle cx="12" cy="5" r="2"></circle>
+        <path d="M12 7v4"></path>
+        <line x1="8" y1="16" x2="8" y2="16"></line>
+        <line x1="16" y1="16" x2="16" y2="16"></line>
+      </svg>
+      <span class="logo-text">AI<span>HUB</span></span>
+    </div>
+
     <nav>
       <a href="tools.html">Tools</a>
       <a href="favorites.html">Favorites ❤️</a>
