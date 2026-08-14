@@ -153,7 +153,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid rgba(99,102,241,0.28)
 header {
   position: relative;
   background-color: #071026; /* fallback color */
-  background-image: linear-gradient(rgba(3,8,18,0.62), rgba(3,8,18,0.62)), url('/images/chatgpt.svg');
+  background-image: linear-gradient(rgba(3,8,18,0.62), rgba(3,8,18,0.62)), url('images/chatgpt.svg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
