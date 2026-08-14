@@ -1,132 +1,60 @@
-/* Appended shared page styles and utilities for pages that previously had inline CSS */
-
-:root {
-  --page-bg: #0f172a;
-  --card-bg-alt: #1e293b;
-  --muted: #94a3b8;
-  --muted-strong: #cbd5e1;
-  --accent: #6366f1;
+/* Header background (responsive, with dark overlay) */
+header {
+  position: relative;
+  background-color: #071026; /* fallback color */
+  background-image: linear-gradient(rgba(3,8,18,0.62), rgba(3,8,18,0.62)), url('/images/header-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 1.25rem 2rem;
+  z-index: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global header/nav used by tools/about/contact/favorites pages */
-header, .navbar, nav.navbar {
-  background: var(--card-bg-alt);
-  border-bottom: 1px solid rgba(51,65,85,1);
-  padding: 1rem 2rem;
+/* Keep header content readable and centered within max-width */
+header .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
+  gap: 1rem;
+  position: relative; /* above background */
+  z-index: 2;
 }
 
-.navbar .logo, .logo {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.menu a, header nav a {
-  color: var(--muted);
-  text-decoration: none;
-  margin-left: 1.25rem;
-  font-weight: 500;
-}
-
-.menu a:hover, header nav a:hover, .menu a.active, header nav a.active {
-  color: var(--accent);
-}
-
-.container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 1.5rem; padding-bottom: 1rem; }
-.card { background: var(--card-bg-alt); border: 1px solid rgba(51,65,85,1); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction:column; }
-.card-title { font-size:1.15rem; font-weight:700; color: #e6eef8; }
-.card-desc { color: var(--muted-strong); font-size: 0.98rem; margin-top:0.75rem; line-height:1.5; }
-
-.controls { display:flex; gap:1rem; align-items:center; margin-bottom:1.5rem; }
-.search-bar { flex:1; min-width:220px; padding:0.8rem 0.9rem; border-radius:10px; border:1px solid rgba(51,65,85,1); background:var(--card-bg-alt); color: #f8fafc; }
-.category-select { padding:0.6rem 0.9rem; border-radius:8px; border:1px solid rgba(51,65,85,1); background:var(--card-bg-alt); color:#f8fafc; }
-
-.badge { font-size:0.75rem; padding:0.25rem 0.5rem; border-radius:6px; font-weight:600; text-transform:uppercase; }
-.badge-free { background: #059669; color:#fff; }
-.badge-freemium { background:#d97706; color:#fff; }
-.badge-paid { background:#dc2626; color:#fff; }
-
-.card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:1rem; padding-top:0.75rem; border-top:1px solid rgba(51,65,85,1); }
-.fav-btn { background:none; border:none; cursor:pointer; font-size:1.25rem; color: var(--muted); }
-.fav-btn.active { color: #ef4444; }
-
-/* Skip link (visually hidden but accessible to keyboard users) */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-.skip-link:focus {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  padding: 0.5rem 0.75rem;
-  background: #fff;
-  color: #0f172a;
-  border-radius: 6px;
-  z-index: 1000;
-}
-
-/* Focus styles and accessibility */
-:focus { outline: none; }
-:focus-visible { outline: 3px solid rgba(99,102,241,0.25); outline-offset: 2px; }
-
-/* Responsive tweaks */
-@media (max-width:900px) {
-  .container { padding: 0 1rem; }
-  .grid { grid-template-columns: 1fr; }
-}
-
-/* -----------------------------
-   Mobile responsive & usability fixes
-   ----------------------------- */
-
-/* Menu toggle button (hidden on desktop, shown on mobile) */
-.menu-toggle { display: none; background: none; border: none; font-size: 1.25rem; color: var(--muted); }
-
+/* Slightly shrink banner on small screens */
 @media (max-width: 900px) {
-  /* Hide the desktop nav and let JS toggle the mobile menu */
-  header nav.menu { display: none; flex-direction: column; gap: 0.5rem; }
-  .menu-toggle { display: inline-flex; align-items:center; justify-content:center; }
-  header { padding: 0.6rem 1rem; }
-  .logo-text { font-size: 1.05rem; }
+  header {
+    padding: 0.8rem 1rem;
+    background-position: 50% 25%;
+  }
+  .logo-text { color: #fff; }
 }
 
-/* Wrap controls so search and filter don't overflow on narrow screens */
-.controls { flex-wrap: wrap; }
-.search-bar { flex: 1 1 220px; min-width: 160px; }
-.category-select { flex: 0 0 160px; }
-
-@media (max-width: 480px) {
-  .category-select { min-width: 100%; width: 100%; }
+/* Overlay for stronger contrast */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Ensure page content doesn't sit under mobile OS navigation bars */
-body, .container { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
-.site-footer { padding-bottom: env(safe-area-inset-bottom); }
-
-/* Increase touch target and visual affordance for favorite buttons */
-.fav-btn {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.03);
-  font-size: 1.2rem;
+/* Ensure header text and nav sit above overlay */
+header h1, header nav, header .logo-container, header .btn-subscribe {
+  position: relative;
+  z-index: 3;
 }
-.fav-btn.active { background: rgba(239,68,68,0.12); color: #ef4444; }
 
-/* Stronger focus-visible for keyboard users */
-button:focus-visible, a:focus-visible { outline: 3px solid rgba(99,102,241,0.28); outline-offset: 2px; }
+/* Min-height rules */
+@media (min-width: 1200px) {
+  header { min-height: 88px; }
+}
+@media (max-width: 599px) {
+  header { min-height: 64px; }
+}
