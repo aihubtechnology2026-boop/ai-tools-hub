@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Favorites - AI Tools</title>
-  <meta name="description" content="Your saved favorite AI tools on AIHUB for quick access.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Favorites - AIHUB</title>
+  <meta name="description" content="Your saved favorite AI tools on AIHUB for quick access and management.">
+
+  <!-- Open Graph / Social preview -->
+  <meta property="og:site_name" content="AIHUB">
   <meta property="og:title" content="Your Favorites - AIHUB">
   <meta property="og:description" content="Saved AI tools you favorited for quick access and management.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/chatgpt.svg">
+
+  <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="images/chatgpt.png">
-  <link rel="stylesheet" href="style.css">
+  <meta name="twitter:title" content="Your Favorites - AIHUB">
+  <meta name="twitter:description" content="Saved AI tools you favorited for quick access and management.">
+  <meta name="twitter:image" content="/images/chatgpt.svg">
+
+  <!-- Indexing & theme -->
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/chatgpt.svg" type="image/svg+xml">
+
+  <!-- Preload CSS for faster rendering -->
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header>
@@ -27,7 +46,7 @@
     <div class="grid" id="favGrid" aria-live="polite"></div>
   </div>
 
-  <script src="tools-data.js"></script>
+  <script src="/tools-data.js"></script>
   <script>
     const tools = window.TOOLS || [];
 
