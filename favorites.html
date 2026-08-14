@@ -4,27 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Favorites - AI Tools</title>
-  <style>
-    :root {
-      --primary: #6366f1;
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); }
-    header { background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    header nav a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
-    header nav a:hover, header nav a.active { color: var(--primary); }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
-    .card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .card-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0.75rem 0; }
-    .remove-btn { background: #dc2626; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; align-self: flex-start; font-weight: 600; }
-  </style>
+  <meta name="description" content="Your saved favorite AI tools on AIHUB for quick access.">
+  <meta property="og:title" content="Your Favorites - AIHUB">
+  <meta property="og:description" content="Saved AI tools you favorited for quick access and management.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/chatgpt.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -39,52 +24,12 @@
 
   <div class="container">
     <h2>Bookmarked AI Tools</h2>
-    <div class="grid" id="favGrid"></div>
+    <div class="grid" id="favGrid" aria-live="polite"></div>
   </div>
 
+  <script src="tools-data.js"></script>
   <script>
-    // Shared Tool Registry
-    const tools = [
-      { id: 1, name: "ChatGPT", desc: "Conversational AI model for drafting, answering, and brainstorming." },
-      { id: 2, name: "Claude", desc: "Next-gen AI assistant built for safety, reasoning, and long context tasks." },
-      { id: 3, name: "Midjourney", desc: "High-quality text-to-image artwork and photorealistic visual generator." },
-      { id: 4, name: "DALL·E 3", desc: "OpenAI's advanced text-to-image model integrated into ChatGPT." },
-      { id: 5, name: "GitHub Copilot", desc: "AI pair programmer suggesting autocomplete lines and functions." },
-      { id: 6, name: "Cursor", desc: "An AI-first code editor designed for high productivity." },
-      { id: 7, name: "ElevenLabs", desc: "Realistic text-to-speech voice generator and cloning software." },
-      { id: 8, name: "Sora", desc: "Create realistic and imaginative videos from text prompts." },
-      { id: 9, name: "Notion AI", desc: "Integrated AI workspace helper for writing, summarizing, and editing." },
-      { id: 10, name: "Perplexity AI", desc: "Conversational search engine with real-time citations and sources." },
-      { id: 11, name: "Stable Diffusion", desc: "Open-source, powerful image generation deep learning model." },
-      { id: 12, name: "v0 by Vercel", desc: "Generative UI system powered by AI that outputs React/Tailwind code." },
-      { id: 13, name: "Suno", desc: "Generate full songs with lyrics and vocals from text descriptions." },
-      { id: 14, name: "Runway Gen-2", desc: "Text-to-video and image-to-video generative AI Suite." },
-      { id: 15, name: "Grammarly", desc: "AI writing tool for grammar, tone, clarity, and phrasing." },
-      { id: 16, name: "Google Gemini", desc: "Google's multimodal model capable of understanding text, code, audio, and video." },
-      { id: 17, name: "Leonardo.Ai", desc: "Feature-rich asset creation tool for visual production and artwork." },
-      { id: 18, name: "Replit Ghostwriter", desc: "In-browser AI coding assistant integrated directly into Replit IDE." },
-      { id: 19, name: "Whisper", desc: "Robust speech recognition model trained on thousands of hours of audio." },
-      { id: 20, name: "Pika Labs", desc: "Idea-to-video platform that brings creative concepts to life." },
-      { id: 21, name: "Otter.ai", desc: "Automated meeting notes, audio transcription, and real-time summaries." },
-      { id: 22, name: "Mistral AI", desc: "High-performance open-weights LLMs for global developers." },
-      { id: 23, name: "Canva Magic Studio", desc: "AI visual design tools for generating graphics and magic edits." },
-      { id: 24, name: "Tabnine", desc: "AI code completion assistant emphasizing code privacy and security." },
-      { id: 25, name: "Descript", desc: "Edit audio and video files by editing text transcripts." },
-      { id: 26, name: "HeyGen", desc: "Create realistic AI avatar videos for teams and businesses." },
-      { id: 27, name: "Zapier Central", desc: "AI bot workplace automation tool across thousands of apps." },
-      { id: 28, name: "DeepL Translate", desc: "Accurate neural network translation system for global communications." },
-      { id: 29, name: "Krea AI", desc: "Real-time AI visual generation and upscaling tool." },
-      { id: 30, name: "Phind", desc: "Search engine optimized specifically for developer technical questions." },
-      { id: 31, name: "Lovo.ai", desc: "Award-winning voice generator software with human-like voices." },
-      { id: 32, name: "Synthesia", desc: "Turn text into video presentation slides using custom AI avatars." }
-    ];
-
-    function removeFav(id) {
-      let favs = JSON.parse(localStorage.getItem('ai_favs')) || [];
-      favs = favs.filter(item => item !== id);
-      localStorage.setItem('ai_favs', JSON.stringify(favs));
-      renderFavorites();
-    }
+    const tools = window.TOOLS || [];
 
     function renderFavorites() {
       const favs = JSON.parse(localStorage.getItem('ai_favs')) || [];
@@ -106,14 +51,26 @@
             <h3 class="card-title">${tool.name}</h3>
             <p class="card-desc">${tool.desc}</p>
           </div>
-          <button class="remove-btn" onclick="removeFav(${tool.id})">Remove</button>
         `;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-btn';
+        removeBtn.textContent = 'Remove';
+        removeBtn.setAttribute('aria-label', `Remove ${tool.name} from favorites`);
+        removeBtn.addEventListener('click', () => {
+          let current = JSON.parse(localStorage.getItem('ai_favs')) || [];
+          current = current.filter(id => id !== tool.id);
+          localStorage.setItem('ai_favs', JSON.stringify(current));
+          renderFavorites();
+        });
+
+        card.appendChild(removeBtn);
         grid.appendChild(card);
       });
     }
 
+    // Initial render
     renderFavorites();
   </script>
 </body>
 </html>
-
